@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("dotenv").config();
 const cors = require("cors");
 
 const api = require("./api");
@@ -26,7 +27,7 @@ app.use(function (req, res) {
 });
 
 mongoose.connect(
-  "mongodb+srv://ARTurnerGit:IJi1huQSUvnoil12@sandbox.f58os.mongodb.net/virtualstandups",
+  `mongodb+srv://ARTurnerGit:${process.env.DB_PASSWORD}@sandbox.f58os.mongodb.net/virtualstandups`,
   { useNewUrlParser: true }
 );
 
